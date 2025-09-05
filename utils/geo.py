@@ -60,7 +60,30 @@ PREF_CENTERS: Dict[str, tuple[float, float]] = {
 
 
 def get_region_center(prefecture: str, hokkaido_area: Optional[str]) -> Tuple[float, float]:
-    """地域の中心座標を返す。北海道は分区名を組み合わせる。"""
+    """
+    指定した都道府県および北海道分区の中心座標（緯度・経度）を取得する関数。
+
+    この関数は都道府県名と、北海道の場合は分区名を受け取り、対応する中心座標（WGS84 度）を返します。
+
+    引数:
+        prefecture (str): 対象の都道府県名。
+        hokkaido_area (Optional[str]): 北海道の場合の分区名（道南・道央・道北・道東）、それ以外は None。
+
+    戻り値:
+        Tuple[float, float]: 中心座標（緯度, 経度）。
+
+    例外:
+        辞書に該当するキーが存在しない場合はデフォルト値（東京都の座標または北海道-道央）を返します。
+
+    使用例:
+        >>> get_region_center("東京都", None)
+        >>> get_region_center("北海道", "道央")
+
+    注意:
+        外部状態（ファイル、環境変数、グローバル設定）に依存する場合があります。
+        引数の型と値域を事前に検証してください。
+        パフォーマンスや副作用（IO等）に注意してください。
+    """
     if prefecture == "北海道":
         key = f"北海道-{hokkaido_area}" if hokkaido_area else "北海道-道央"
         return PREF_CENTERS.get(key, PREF_CENTERS["北海道-道央"])

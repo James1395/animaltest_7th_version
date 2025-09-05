@@ -58,18 +58,76 @@ PREFS: List[str] = [
 
 
 def prefecture_selector() -> str:
-    """都道府県の選択 UI を表示し、選択結果を返す。既定は「東京都」。"""
+    """
+    都道府県を選択するためのセレクタをサイドバーに表示する関数。
+
+    Streamlit のサイドバーに都道府県の選択ボックスを表示し、選択された都道府県名を返します。
+
+    引数:
+        なし
+
+    戻り値:
+        str: 選択された都道府県名。
+
+    例外:
+        Streamlit の内部処理や描画時に例外が発生する可能性があります。
+
+    使用例:
+        >>> prefecture_selector()
+
+    注意:
+        外部状態（ファイル、環境変数、グローバル設定）に依存する場合があります。
+        パフォーマンスや副作用（IO等）に注意してください。
+    """
     default_index = PREFS.index("東京都")
     return st.sidebar.selectbox("都道府県 / Prefecture", options=PREFS, index=default_index)
 
 
 def hokkaido_split_selector(prefecture: str) -> Optional[str]:
-    """北海道選択時のみ分区を選択。その他は None。"""
+    """
+    北海道の場合に分区（道南・道央・道北・道東）を選択するセレクタをサイドバーに表示する関数。
+
+    引数:
+        prefecture (str): 対象の都道府県名。
+
+    戻り値:
+        Optional[str]: 北海道の場合は選択された分区名、それ以外は None。
+
+    例外:
+        Streamlit の内部処理や描画時に例外が発生する可能性があります。
+
+    使用例:
+        >>> hokkaido_split_selector("北海道")
+
+    注意:
+        外部状態（ファイル、環境変数、グローバル設定）に依存する場合があります。
+        パフォーマンスや副作用（IO等）に注意してください。
+    """
     if prefecture != "北海道":
         return None
     return st.sidebar.selectbox("北海道の分区", ["道南", "道央", "道北", "道東"], index=1)
 
 
 def get_region_center(prefecture: str, hokkaido_area: Optional[str]) -> Tuple[float, float]:
-    """地域の地図中心座標（緯度, 経度）を返す。"""
+    """
+    指定した都道府県および北海道分区の中心座標（緯度・経度）を取得する関数。
+
+    引数:
+        prefecture (str): 対象の都道府県名。
+        hokkaido_area (Optional[str]): 北海道の場合の分区名（道南・道央・道北・道東）、それ以外は None。
+
+    戻り値:
+        Tuple[float, float]: 中心座標（緯度, 経度）。
+
+    例外:
+        内部で呼び出す実装（_get_center_impl）に依存し、例外が発生する可能性があります。
+
+    使用例:
+        >>> get_region_center("東京都", None)
+        >>> get_region_center("北海道", "道央")
+
+    注意:
+        外部状態（ファイル、環境変数、グローバル設定）に依存する場合があります。
+        パフォーマンスや副作用（IO等）に注意してください。
+    """
     return _get_center_impl(prefecture, hokkaido_area)
