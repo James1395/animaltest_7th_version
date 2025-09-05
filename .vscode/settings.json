@@ -1,0 +1,8 @@
+{
+  "cSpell.enabled": false,
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.showAutocompleteSuggestions": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.cSpell": "never"
+  }
+}
