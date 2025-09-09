@@ -1,1 +1,257 @@
-{}
+{
+  "北海道": {
+    "熊": true,
+    "鹿": true,
+    "猪": false
+  },
+  "青森県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "岩手県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "宮城県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "秋田県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "山形県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "福島県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "茨城県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "栃木県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "群馬県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "埼玉県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "千葉県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "東京都": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "神奈川県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "新潟県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "富山県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "石川県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "福井県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "山梨県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "長野県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "岐阜県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "静岡県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "愛知県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "三重県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "滋賀県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "京都府": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "大阪府": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "兵庫県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "奈良県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "和歌山県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "鳥取県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "島根県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "岡山県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "広島県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "山口県": {
+    "熊": true,
+    "鹿": true,
+    "猪": true
+  },
+  "徳島県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "香川県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "愛媛県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "高知県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "福岡県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "佐賀県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "長崎県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "熊本県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "大分県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "宮崎県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "鹿児島県": {
+    "熊": false,
+    "鹿": true,
+    "猪": true
+  },
+  "沖縄県": {
+    "熊": false,
+    "鹿": false,
+    "猪": true
+  },
+  "北海道|道南": {
+    "熊": true,
+    "鹿": true,
+    "猪": false
+  },
+  "北海道|道央": {
+    "熊": true,
+    "鹿": true,
+    "猪": false
+  },
+  "北海道|道北": {
+    "熊": true,
+    "鹿": true,
+    "猪": false
+  },
+  "北海道|道東": {
+    "熊": true,
+    "鹿": true,
+    "猪": false
+  }
+}

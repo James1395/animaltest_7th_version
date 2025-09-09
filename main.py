@@ -75,7 +75,7 @@ def render_app() -> None:
         center_lat, center_lon = get_region_center(prefecture, hokkaido_part)
 
         if not is_species_present(prefecture, hokkaido_part, species):
-            st.warning(f"この地域では '{species}' の生息情報がありません。別の組み合わせをお試しください。")
+            st.warning("この種は該当地域には存在しません。")
             st.plotly_chart(japan_basemap(), use_container_width=True, config={"scrollZoom": True})
             return
 
