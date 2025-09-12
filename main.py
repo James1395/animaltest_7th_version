@@ -1,33 +1,33 @@
 from __future__ import annotations
-"""
-アプリ本体（Flake8 整形済み）。
+
+import streamlit as st
+
+from pbi.core_foundation import color_scale_blue_purple, list_base_dates, render_frame
+from pbi.geo_regions import (
+    get_region_center,
+    hokkaido_split_selector,
+    prefecture_selector,
+)
+from pbi.map_layers import japan_basemap, make_mesh_for_bbox, plot_probability_heatmap
+from pbi.mock_data import synth_probabilities
+from pbi.ui_filters import (
+    clamp_horizon,
+    get_pref_bbox,
+    is_species_present,
+    normalize_time_of_day,
+    species_selector,
+)
+
+"""アプリ本体（Flake8 整形済み).
 - タイトル: 獣害BIツール
 - Sidebar に UI を集約
 - 最小確率しきい値: 0.0..1.0（step 0.1）
 - メッシュ: UTM による真の 1km × 1km
 - 外枠線幅: 0.10（固定）
 """
-import streamlit as st
-from pbi.geo_regions import (
-    prefecture_selector,
-    hokkaido_split_selector,
-    get_region_center,
-)
-from pbi.ui_filters import (
-    species_selector,
-    get_pref_bbox,
-    is_species_present,
-    clamp_horizon,
-    normalize_time_of_day,
-)
-from pbi.core_foundation import render_frame, list_base_dates, color_scale_blue_purple
-from pbi.map_layers import make_mesh_for_bbox, plot_probability_heatmap, japan_basemap
-from pbi.mock_data import synth_probabilities
-
 
 def render_app() -> None:
-    """
-    アプリケーションのメイン画面を描画する関数。
+    """アプリケーションのメイン画面を描画する関数.
 
     この関数は Streamlit を用いて獣害BIツールのUIを構築し、各種フィルタや地図、ヒートマップ等を表示します。
     コードの挙動には影響せず、説明のみを補強する目的でドキュメントを記述しています。

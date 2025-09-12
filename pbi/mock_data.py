@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Optional
-
 import numpy as np
 import pandas as pd
 
@@ -12,10 +10,9 @@ def synth_probabilities(
     base_date: str,
     time_of_day: str,
     horizon_days: int,
-    data_df: Optional[pd.DataFrame] = None,
+    data_df: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
-    """
-    セルごとの出現確率を合成する関数。
+    """セルごとの出現確率を合成する関数.
 
     この関数は入力されたセル情報や条件（種名、基準日、時間帯、予測日数など）に基づき、乱数を用いて確率値を生成します。
     実際のデータやモデルには依存せず、主にデモやテスト用途で利用されます。

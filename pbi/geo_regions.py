@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from typing import List, Optional, Tuple
-
 import streamlit as st
+
 from utils.geo import get_region_center as _get_center_impl
 
-
-PREFS: List[str] = [
+PREFS: list[str] = [
     "北海道",
     "青森県",
     "岩手県",
@@ -58,8 +56,7 @@ PREFS: List[str] = [
 
 
 def prefecture_selector() -> str:
-    """
-    都道府県を選択するためのセレクタをサイドバーに表示する関数。
+    """都道府県を選択するためのセレクタをサイドバーに表示する関数.
 
     Streamlit のサイドバーに都道府県の選択ボックスを表示し、選択された都道府県名を返します。
 
@@ -83,9 +80,8 @@ def prefecture_selector() -> str:
     return st.sidebar.selectbox("都道府県 / Prefecture", options=PREFS, index=default_index)
 
 
-def hokkaido_split_selector(prefecture: str) -> Optional[str]:
-    """
-    北海道の場合に分区（道南・道央・道北・道東）を選択するセレクタをサイドバーに表示する関数。
+def hokkaido_split_selector(prefecture: str) -> str | None:
+    """北海道の場合に分区（道南・道央・道北・道東）を選択するセレクタをサイドバーに表示する関数.
 
     引数:
         prefecture (str): 対象の都道府県名。
@@ -108,9 +104,8 @@ def hokkaido_split_selector(prefecture: str) -> Optional[str]:
     return st.sidebar.selectbox("北海道の分区", ["道南", "道央", "道北", "道東"], index=1)
 
 
-def get_region_center(prefecture: str, hokkaido_area: Optional[str]) -> Tuple[float, float]:
-    """
-    指定した都道府県および北海道分区の中心座標（緯度・経度）を取得する関数。
+def get_region_center(prefecture: str, hokkaido_area: str | None) -> tuple[float, float]:
+    """指定した都道府県および北海道分区の中心座標（緯度・経度）を取得する関数.
 
     引数:
         prefecture (str): 対象の都道府県名。

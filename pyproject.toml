@@ -1,9 +1,13 @@
-[tool.black]
-line-length = 120
-target-version = ["py311"]
-skip-string-normalization = true
-
 [tool.ruff]
 line-length = 120
-extend-ignore = ["E203", "W503"]
-select = ["E","F","I","UP","B"]
+target-version = "py311"
+extend-ignore = ["E501"]  # 單行過長忽略
+
+[tool.ruff.lint]
+# 嚴格檢查集合（維持你原本的選擇）
+select = ["E", "F", "I", "UP", "PL", "D", "C4", "ARG", "SIM"]
+# 忽略規則：D100（模組 docstring）、D104（封包 docstring）、PLR0913（參數過多）
+ignore = ["D100", "D104", "PLR0913"]
+
+[tool.ruff.format]
+quote-style = "double"

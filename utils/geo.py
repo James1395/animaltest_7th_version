@@ -1,11 +1,9 @@
+
 from __future__ import annotations
-
-from typing import Dict, Optional, Tuple
-
 
 """地域中心点ユーティリティ（WGS84 度）。"""
 
-PREF_CENTERS: Dict[str, tuple[float, float]] = {
+PREF_CENTERS: dict[str, tuple[float, float]] = {
     "北海道-道央": (43.06417, 141.34694),
     "北海道-道北": (43.77063, 142.36500),
     "北海道-道東": (42.98400, 144.38100),
@@ -59,9 +57,8 @@ PREF_CENTERS: Dict[str, tuple[float, float]] = {
 }
 
 
-def get_region_center(prefecture: str, hokkaido_area: Optional[str]) -> Tuple[float, float]:
-    """
-    指定した都道府県および北海道分区の中心座標（緯度・経度）を取得する関数。
+def get_region_center(prefecture: str, hokkaido_area: str | None) -> tuple[float, float]:
+    """指定した都道府県および北海道分区の中心座標（緯度・経度）を取得する関数.
 
     この関数は都道府県名と、北海道の場合は分区名を受け取り、対応する中心座標（WGS84 度）を返します。
 

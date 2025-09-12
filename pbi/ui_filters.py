@@ -1,16 +1,21 @@
 from __future__ import annotations
 
 import json
+
+try:
+    from validation import validate_species_for_prefecture  # fallback
+except Exception:
+    validate_species_for_prefecture = None  # type: ignore
+
 from pathlib import Path
-from typing import Optional, Tuple
 
 import streamlit as st
+
 from pbi.geo_regions import get_region_center
 
 
 def species_selector() -> str:
-    """
-    種別（熊・鹿・猪）を選択するセレクタをサイドバーに表示する関数。
+    """種別（熊・鹿・猪）を選択するセレクタをサイドバーに表示する関数.
 
     Streamlit のサイドバーに種別の選択ボックスを表示し、選択された種名を返します。
 
@@ -33,9 +38,8 @@ def species_selector() -> str:
     return st.sidebar.selectbox("種別 / Species", options=["熊", "鹿", "猪"], index=0)
 
 
-def is_species_present(prefecture: str, hokkaido_part: Optional[str], species_jp: str) -> bool:
-    """
-    指定した地域・種別の生息情報が存在するか判定する関数。
+def is_species_present(prefecture: str, hokkaido_part: str | None, species_jp: str) -> bool:
+    """指定した地域・種別の生息情報が存在するか判定する関数.
 
     presence.json が存在する場合はその内容を参照し、なければ常に True を返します。
 
@@ -65,9 +69,8 @@ def is_species_present(prefecture: str, hokkaido_part: Optional[str], species_jp
     return True
 
 
-def get_pref_bbox(prefecture: str, hokkaido_part: Optional[str]) -> Tuple[float, float, float, float]:
-    """
-    指定した都道府県・北海道分区のバウンディングボックス（経度緯度）を取得する関数。
+def get_pref_bbox(prefecture: str, hokkaido_part: str | None) -> tuple[float, float, float, float]:
+    """指定した都道府県・北海道分区のバウンディングボックス（経度緯度）を取得する関数.
 
     bboxes.json が存在する場合はその内容を参照し、なければ中心座標±0.8度の範囲を返します。
 
@@ -100,8 +103,7 @@ def get_pref_bbox(prefecture: str, hokkaido_part: Optional[str]) -> Tuple[float,
 
 
 def clamp_horizon(days: int) -> int:
-    """
-    予測日数を1〜30の範囲に制限する関数。
+    """予測日数を1〜30の範囲に制限する関数.
 
     引数:
         days (int): 入力された予測日数。
@@ -122,8 +124,7 @@ def clamp_horizon(days: int) -> int:
 
 
 def normalize_time_of_day(value: str) -> str:
-    """
-    時間帯の値を「午前」または「午後」に正規化する関数。
+    """時間帯の値を「午前」または「午後」に正規化する関数.
 
     引数:
         value (str): 入力された時間帯（例: "午前", "AM", "morning", "午後" など）。

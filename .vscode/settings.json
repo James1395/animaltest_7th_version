@@ -1,8 +1,17 @@
 {
+  "python.analysis.typeCheckingMode": "basic",
+  "python.formatting.provider": "none",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always",
+    "source.fixAll.cSpell": "never"
+  },
+  "ruff.enable": true,
+  "ruff.format.enable": true,
   "cSpell.enabled": false,
   "cSpell.diagnosticLevel": "Hint",
   "cSpell.showAutocompleteSuggestions": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.cSpell": "never"
-  }
+  "python.linting.enabled": false,
+  "python.linting.flake8Enabled": false
 }
